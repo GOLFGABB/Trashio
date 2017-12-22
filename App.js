@@ -6,12 +6,12 @@ import {StatusBar,
         Text,
         View} from 'react-native';
 import {Navigator} from 'react-native-deprecated-custom-components';
-import MapExplorer from './MapExplorer.js';
+import MapExplorer from './index_w.js';
 import Detail from './Detail.js';
 
 const routes = [
   {
-    title: 'Map Explorer',
+    title: 'Home',
     index: 0
   },{
     title: 'Detail',
@@ -24,7 +24,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar
-          backgroundColor="darkred"
+          backgroundColor="darkgreen"
           barStyle="light-content"
         />
         <Navigator
@@ -81,7 +81,7 @@ export default class App extends React.Component {
     flex: 1
   },
   navigationBar:{
-    backgroundColor: 'darkred',
+    backgroundColor: '#b2cc4f',
   },
   navigationBarText:{
     color: 'white',

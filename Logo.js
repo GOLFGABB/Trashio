@@ -11,8 +11,8 @@ export default class Logo extends Component<{}> {
 		return(
 			<View style={styles.container}>
 				<Image  style={{width:180, height: 180}}
-          			source={require('./images/logo.png')}/>
-          		<Text style={styles.logoText}>Welcome to Electricity Usage Report App.</Text>
+          			source={require('./images/recycling.png')}/>
+          		<Text style={styles.logoText}>Welcome to Trash.io.</Text>
   			</View>
 			)
 	}
