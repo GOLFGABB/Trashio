@@ -98,9 +98,6 @@ export default class comment_new extends Component {
   }
   componentDidMount() {
     this.listeningForAuthChange();
-    Font.loadAsync({
-      'Sarala-Regular': require('./fonts/Sarala-Regular.ttf'),
-    });
   }
 
   login() {
@@ -237,16 +234,19 @@ else if (this.state.show=='reset'){
             {authUI}
             </View>
           </Modal>
+
       <View style={styles.myAcc}>
-        <Text style={{fontSize:26}}>Total credit : 100 Baht</Text>
+
+        <Text style={{fontSize:26}}>Balance :<Image style={{width:26, height: 26}} source={require('./images/coin.png')} /> <Text style={{color:'orange'}}>100 Baht</Text></Text>
 
       </View>
       <View style={styles.blockContainer}>
 
-       <TouchableOpacity>
+       <TouchableOpacity onPress={()=> this.props.navigator.push({index: 1,
+                                     passProps:{}})}>
         <View style={styles.block}>
           <View style={styles.ImgBlock}>
-            <Image  style={{width:110, height: 110}} source={require('./images/barcode.png')}/>
+            <Image  style={{width:120, height: 120}} source={require('./images/scan.png')}/>
           </View>
             <Text style={styles.textBorder}>Barcode Scanner</Text>
         </View>
@@ -255,7 +255,7 @@ else if (this.state.show=='reset'){
         <TouchableOpacity>
         <View style={styles.block}>
           <View style={styles.ImgBlock}>
-            <Image  style={{width:110, height: 110}} source={require('./images/search.png')}/>
+            <Image  style={{width:120, height: 120}} source={require('./images/search.png')}/>
           </View>
           <Text style={styles.textBorder}>Search</Text>
         </View>
@@ -264,21 +264,23 @@ else if (this.state.show=='reset'){
         <TouchableOpacity>
         <View style={styles.block}>
           <View style={styles.ImgBlock}>
-            <Image  style={{width:110, height: 110}} source={require('./images/location.png')}/>
+            <Image  style={{width:120, height: 120}} source={require('./images/location.png')}/>
           </View>
-          <Text style={styles.textBorder}>Near By</Text>
+          <Text style={styles.textBorder}>Center Near By</Text>
         </View>
         </TouchableOpacity>
 
         <TouchableOpacity>
         <View style={styles.block}>
           <View style={styles.ImgBlock}>
-            <Image  style={{width:110, height: 110}} source={require('./images/contact.png')}/>
+            <Image  style={{width:120, height: 120}} source={require('./images/contact.png')}/>
           </View>
           <Text style={styles.textBorder}>Contact Us</Text>
         </View>
         </TouchableOpacity>
+
       </View>
+      <Text style={{fontSize:18}}>Welcome <Text style={{color:'orange'}}>{this.state.email}</Text></Text>
   </View>
     );
   }
@@ -296,22 +298,22 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     width:350,
-    height:100,
+    height:85,
     marginTop:70,
     padding:20,
     borderColor:'#5d6b51',
-    borderWidth:5,
+    borderWidth:4,
     borderRadius:20,
-    backgroundColor:'#dce25a'
+    backgroundColor:'#fcffad'
   },
   blockContainer:{
-    marginTop:0,
+    marginTop:-3,
     flex:1,
     justifyContent:'center',
     flexWrap:'wrap'
   },
   ImgBlock:{
-    marginBottom:40
+    marginBottom:20
   },
   footer:{
   flex: 2,
@@ -321,13 +323,15 @@ const styles = StyleSheet.create({
 },
   block:{
     width:150,
-    height:190,
-    margin:20,
+    height:200,
+    margin:10,
     justifyContent:'center',
     alignItems:'center',
     borderWidth:1,
     borderColor:'#5d6b51',
-    borderRadius:10
+    borderRadius:10,
+    shadowColor:'grey',
+    shadowOpacity:0.8
   }
   ,
   content: {
@@ -367,9 +371,11 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   modal: {
-    flex:2,
-    margin: 12,
+    flex:1,
+    width:500,
+    marginTop: 30,
     padding:5,
+    paddingBottom:26,
     alignSelf: 'center',
     backgroundColor: '#c5e062',
     justifyContent: 'center',
@@ -426,6 +432,8 @@ const styles = StyleSheet.create({
   },
   containerLG : {
     backgroundColor:'#5d6b51',
+    marginTop:30,
+    width:350,
     flex: 1,
     alignItems:'center',
     justifyContent :'center',

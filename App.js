@@ -7,14 +7,14 @@ import {StatusBar,
         View} from 'react-native';
 import {Navigator} from 'react-native-deprecated-custom-components';
 import MapExplorer from './index_w.js';
-import Detail from './Detail.js';
+import Detail from './barcode.js';
 
 const routes = [
   {
     title: 'Home',
     index: 0
   },{
-    title: 'Detail',
+    title: 'Barcode Scanner',
     index: 1
   }
 ]
