@@ -242,8 +242,7 @@ else if (this.state.show=='reset'){
       </View>
       <View style={styles.blockContainer}>
 
-       <TouchableOpacity onPress={()=> this.props.navigator.push({index: 1,
-                                     passProps:{}})}>
+       <TouchableOpacity onPress={()=> this.props.navigator.push({index: 1, passProps:{}})}>
         <View style={styles.block}>
           <View style={styles.ImgBlock}>
             <Image  style={{width:120, height: 120}} source={require('./images/scan.png')}/>
@@ -261,7 +260,7 @@ else if (this.state.show=='reset'){
         </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=> this.props.navigator.push({index: 2, passProps:{}})}>
         <View style={styles.block}>
           <View style={styles.ImgBlock}>
             <Image  style={{width:120, height: 120}} source={require('./images/location.png')}/>
@@ -280,7 +279,7 @@ else if (this.state.show=='reset'){
         </TouchableOpacity>
 
       </View>
-      <Text style={{fontSize:18}}>Welcome <Text style={{color:'orange'}}>{this.state.email}</Text></Text>
+      <Text style={{fontSize:18, marginBottom:8}}>Welcome <Text style={{color:'orange'}}>{this.state.email}</Text></Text>
   </View>
     );
   }

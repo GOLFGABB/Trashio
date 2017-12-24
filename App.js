@@ -6,8 +6,9 @@ import {StatusBar,
         Text,
         View} from 'react-native';
 import {Navigator} from 'react-native-deprecated-custom-components';
-import MapExplorer from './index_w.js';
-import Detail from './barcode.js';
+import MapExplorer from './MapExplorer.js';
+import Barcode from './barcode.js';
+import Home from './index_w.js';
 
 const routes = [
   {
@@ -16,6 +17,9 @@ const routes = [
   },{
     title: 'Barcode Scanner',
     index: 1
+  },{
+    title: 'MapExplorer',
+    index: 2
   }
 ]
 
@@ -33,8 +37,9 @@ export default class App extends React.Component {
           renderScene={
             (route, navigator) => {
               switch (route.index) {
-                case 0: return (<MapExplorer navigator={navigator} route={routes[route.index]} {...route.passProps}></MapExplorer>);
-                case 1: return (<Detail navigator={navigator} route={routes[route.index]} {...route.passProps}></Detail>);
+                case 0: return (<Home navigator={navigator} route={routes[route.index]} {...route.passProps}></Home>);
+                case 1: return (<Barcode navigator={navigator} route={routes[route.index]} {...route.passProps}></Barcode>);
+                case 2: return (<MapExplorer navigator={navigator} route={routes[route.index]} {...route.passProps}></MapExplorer>);
               }
             }
           }

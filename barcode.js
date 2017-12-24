@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Alert ,TouchableOpacity,TextInput,Image} from 'react-native';
 import { Constants, BarCodeScanner, Permissions } from 'expo';
-import Logo from './Item';
+import Item from './Item';
 
 export default class App extends Component {
   constructor(props) {
@@ -38,8 +38,10 @@ export default class App extends Component {
   if (this.state.successScan==true) {
     authUI = (
       <View style={styles.containerLG}>
-      <Logo/>
+      <Item/>
         <View style={styles.formLG}>
+        <View style={styles.SectionStyle}>
+        <Image source={require('./images/product.png')} style={styles.ImageStyle} />
         <TextInput style={styles.inputBoxLG}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="product's name"
@@ -50,6 +52,10 @@ export default class App extends Component {
             //onChangeText={email => this.setState({email})}
             value={this.state.EmailLG}
             />
+        </View>
+
+        <View style={styles.SectionStyle}>
+        <Image source={require('./images/list.png')} style={styles.ImageStyle} />
         <TextInput style={styles.inputBoxLG}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="material's type"
@@ -60,16 +66,23 @@ export default class App extends Component {
             //onChangeText={password => this.setState({password})}
             value={this.state.PassLG}
             />
+        </View>
+
+        <View style={styles.SectionStyle}>
+        <Image source={require('./images/bin.png')} style={styles.ImageStyle} />
             <TextInput style={styles.inputBoxLG}
                 underlineColorAndroid='rgba(0,0,0,0)'
-                placeholder="product's name"
+                placeholder="bin's color"
                 placeholderTextColor = "#ffffff"
                 selectionColor="#fff"
-                keyboardType="bin's type"
+                keyboardType="email-address"
                 //onSubmitEditing={()=> this.password.focus()}
                 //onChangeText={email => this.setState({email})}
                 value={this.state.EmailLG}
                 />
+        </View>
+        <View style={styles.SectionStyle}>
+        <Image source={require('./images/baht.png')} style={styles.ImageStyle} />
                 <TextInput style={styles.inputBoxLG}
                     underlineColorAndroid='rgba(0,0,0,0)'
                     placeholder="exchange's price"
@@ -80,6 +93,7 @@ export default class App extends Component {
                     //onChangeText={email => this.setState({email})}
                     value={this.state.EmailLG}
                     />
+          </View>
           </View>
          <TouchableOpacity style={styles.buttonLG}  >
            <Text style={styles.buttonTextLG}>Add to My Bin</Text>
@@ -134,7 +148,8 @@ const styles = StyleSheet.create({
   },
   containerLG : {
     backgroundColor:'#5d6b51',
-    marginTop:30,
+    marginTop:55,
+    marginBottom:10,
     width:350,
     flex: 1,
     alignItems:'center',
@@ -178,7 +193,7 @@ const styles = StyleSheet.create({
     width:300,
     backgroundColor:'#88a02e',
      borderRadius: 25,
-      marginVertical: 10,
+      marginVertical: 20,
       paddingVertical: 13
   },
   buttonTextLG: {
@@ -202,5 +217,18 @@ const styles = StyleSheet.create({
   	color:'#ffffff',
   	fontSize:16,
   	fontWeight:'500'
-  }
+  },
+  SectionStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+},
+  ImageStyle: {
+    padding: 10,
+    margin: 5,
+    height: 32,
+    width: 32,
+    resizeMode : 'stretch',
+    alignItems: 'center'
+},
 });

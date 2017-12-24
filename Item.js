@@ -10,9 +10,8 @@ export default class Item extends Component<{}> {
 	render(){
 		return(
 			<View style={styles.container}>
-				<Image  style={{width:180, height: 180}}
+				<Image  style={{width:130, height: 130,margin:20}}
           			source={require('./images/bottle.png')}/>
-          		<Text style={styles.logoText}>Welcome to Trash.io.</Text>
   			</View>
 			)
 	}
@@ -22,7 +21,13 @@ const styles = StyleSheet.create({
   container : {
     flexGrow: 1,
     justifyContent:'flex-end',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderColor:'white',
+    borderWidth:1,
+    borderRadius:25,
+    width:230,
+    height:150,
+    marginTop:20
   },
   logoText : {
   	marginVertical: 15,
