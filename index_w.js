@@ -269,7 +269,7 @@ else if (this.state.show=='reset'){
         </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=> this.props.navigator.push({index: 3, passProps:{}})}>
         <View style={styles.block}>
           <View style={styles.ImgBlock}>
             <Image  style={{width:120, height: 120}} source={require('./images/contact.png')}/>

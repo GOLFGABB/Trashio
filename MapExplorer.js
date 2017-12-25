@@ -14,12 +14,12 @@ constructor(props) {
 
   super(props);
   this.state = {
-    region: {
-      latitude: 14.06911,
-      longitude: 	100.60540,
-      latitudeDelta: 0.007,
-      longitudeDelta: 0.007
-    },
+    mapRegion: null,
+    yourP:null,
+    lastLat: null,
+    lastLong: null,
+    title:'You are here',
+    image: require('./images/yourpos.png'),
     term:'',
     markers: [
       {
@@ -65,9 +65,14 @@ constructor(props) {
 }
 
 
-onRegionChange(region) {
-  this.setState({region});
-}
+onRegionChange(region, lastLat, lastLong) {
+   this.setState({
+     mapRegion: region,
+     // If there are no new values set the current ones
+     lastLat: lastLat || this.state.lastLat,
+     lastLong: lastLong || this.state.lastLong
+   });
+ }
 
 moveMaptoLocation(latlng,key){
    this.refs.map.animateToRegion({
@@ -82,23 +87,56 @@ moveMaptoLocation(latlng,key){
  }, 1000);
  }
 
+ componentDidMount() {
+   this.watchID = navigator.geolocation.watchPosition((position) => {
+     // Create the object to update this.state.mapRegion through the onRegionChange function
+     let region = {
+       latitude:       position.coords.latitude,
+       longitude:      position.coords.longitude,
+       latitudeDelta:  0.003,
+       longitudeDelta: 0.003
+     }
+     this.setState({yourP:region});
+     this.onRegionChange(region, region.latitude, region.longitude);
+   });
+ }
+
+ componentWillUnmount() {
+  navigator.geolocation.clearWatch(this.watchID);
+}
+
   render() {
     return (
       <View style={styles.container}>
 
-      <MapView style={styles.map} ref="map" mapType='satellite' initialRegion={this.state.region} onRegionChange={this.onRegionChange}>
+      <MapView style={styles.map} ref="map" mapType='satellite' initialRegion={this.state.mapRegion} onRegionChange={this.onRegionChange}>
 
       {this.state.markers.map((marker, i) => {
 
              return (
+               <View>
                <MapView.Marker key={i} ref={i} coordinate={marker.latlng} title={marker.title} image={marker.image}>
                     <MapView.Callout>
                              <View style={styles.callout}>
                                <Text style={styles.calloutTitle}>{marker.title}</Text>
                              </View>
                     </MapView.Callout>
-               </MapView.Marker>);
+               </MapView.Marker>
+
+               <MapView.Marker coordinate={this.state.yourP} title={this.state.title} image={this.state.image}>
+                    <MapView.Callout>
+                             <View style={styles.callout}>
+                               <Text style={styles.calloutTitle}>{this.state.title}</Text>
+                             </View>
+                    </MapView.Callout>
+               </MapView.Marker>
+               </View>
+
+             );
+
              })}
+
+
     </MapView>
 
     <View style={styles.footer}>

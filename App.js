@@ -9,6 +9,7 @@ import {Navigator} from 'react-native-deprecated-custom-components';
 import MapExplorer from './MapExplorer.js';
 import Barcode from './barcode.js';
 import Home from './index_w.js';
+import Contact from './contact.js';
 
 const routes = [
   {
@@ -20,6 +21,9 @@ const routes = [
   },{
     title: 'MapExplorer',
     index: 2
+  },{
+    title: 'Contact Us',
+    index: 3
   }
 ]
 
@@ -40,6 +44,7 @@ export default class App extends React.Component {
                 case 0: return (<Home navigator={navigator} route={routes[route.index]} {...route.passProps}></Home>);
                 case 1: return (<Barcode navigator={navigator} route={routes[route.index]} {...route.passProps}></Barcode>);
                 case 2: return (<MapExplorer navigator={navigator} route={routes[route.index]} {...route.passProps}></MapExplorer>);
+                case 3: return (<Contact navigator={navigator} route={routes[route.index]} {...route.passProps}></Contact>);
               }
             }
           }
