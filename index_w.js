@@ -237,9 +237,12 @@ else if (this.state.show=='reset'){
 
       <View style={styles.myAcc}>
 
-        <Text style={{fontSize:26}}>Balance :<Image style={{width:26, height: 26}} source={require('./images/coin.png')} /> <Text style={{color:'orange'}}>100 Baht</Text></Text>
+      <Text style={{fontSize:26,color:'black',width:280,height:60,justifyContent:'center',alignItems:'center',marginLeft:10,paddingLeft:10}}>Balance:   <View style={styles.baht}>
+       <Text style={{fontSize:24,color:'orange'}}><Image style={{width:26, height: 26,marginTop:4.5}} source={require('./images/coin.png')} /> 100 Baht</Text>
+       </View></Text>
 
       </View>
+
       <View style={styles.blockContainer}>
 
        <TouchableOpacity onPress={()=> this.props.navigator.push({index: 1, passProps:{}})}>
@@ -293,6 +296,18 @@ const styles = StyleSheet.create({
    backgroundColor: '#F5FCFF',
 
 },
+  baht:{
+      borderWidth:3,
+      borderColor:'#fff766',
+      borderRadius:20,
+      backgroundColor:'#f9df1b',
+      width:150,
+      height:50,
+      justifyContent:'center',
+      alignItems:'center',
+      marginTop:10
+    },
+
   myAcc:{
     justifyContent:'center',
     alignItems:'center',
