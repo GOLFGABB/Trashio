@@ -315,10 +315,10 @@ const styles = StyleSheet.create({
     height:85,
     marginTop:70,
     padding:20,
-    borderColor:'#5d6b51',
-    borderWidth:4,
-    borderRadius:20,
-    backgroundColor:'#fcffad'
+    // borderColor:'#5d6b51',
+    // borderWidth:4,
+    // borderRadius:20,
+    // backgroundColor:'#fcffad'
   },
   blockContainer:{
     marginTop:-3,

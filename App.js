@@ -4,6 +4,7 @@ import {StatusBar,
         AppRegistry,
         StyleSheet,
         Text,
+        Image,
         View} from 'react-native';
 import {Navigator} from 'react-native-deprecated-custom-components';
 import MapExplorer from './MapExplorer.js';
@@ -74,8 +75,21 @@ export default class App extends React.Component {
                )
              },
                Title: (route, navigator, index, navState) =>
-             {
-                   return (<Text style={[styles.navigationBarText, styles.titleText]}>{routes[route.index].title}</Text>); },
+             {   if (route.index == 0){
+                  return (<Text style={[styles.navigationBarText, styles.titleText]}>{routes[route.index].title} <Image style={{width:26, height: 26, marginTop:8, marginLeft:8}} source={require('./images/home.png')} /></Text>);
+                }
+                else if (route.index == 1){
+                     return (<Text style={[styles.navigationBarText, styles.titleText]}>{routes[route.index].title} <Image style={{width:26, height: 26, marginTop:8, marginLeft:8}} source={require('./images/bs.png')} /></Text>);
+                }
+                else if (route.index == 2){
+                    return (<Text style={[styles.navigationBarText, styles.titleText]}>{routes[route.index].title} <Image style={{width:26, height: 26, marginTop:8, marginLeft:8}} source={require('./images/earth.png')} /></Text>);
+                }
+                else if (route.index == 3){
+                    return (<Text style={[styles.navigationBarText, styles.titleText]}>{routes[route.index].title} <Image style={{width:26, height: 26, marginTop:8, marginLeft:8}} source={require('./images/card.png')} /></Text>);
+                }
+
+             },
+
              }}
              style={styles.navigationBar}
            />
