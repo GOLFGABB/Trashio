@@ -11,6 +11,7 @@ import MapExplorer from './MapExplorer.js';
 import Barcode from './barcode.js';
 import Home from './index_w.js';
 import Contact from './contact.js';
+import Search from './search.js';
 
 const routes = [
   {
@@ -25,6 +26,9 @@ const routes = [
   },{
     title: 'Contact Us',
     index: 3
+  },{
+    title: 'Search',
+    index: 4
   }
 ]
 
@@ -46,6 +50,8 @@ export default class App extends React.Component {
                 case 1: return (<Barcode navigator={navigator} route={routes[route.index]} {...route.passProps}></Barcode>);
                 case 2: return (<MapExplorer navigator={navigator} route={routes[route.index]} {...route.passProps}></MapExplorer>);
                 case 3: return (<Contact navigator={navigator} route={routes[route.index]} {...route.passProps}></Contact>);
+                case 4: return (<Search navigator={navigator} route={routes[route.index]} {...route.passProps}></Search>);
+
               }
             }
           }
@@ -86,6 +92,9 @@ export default class App extends React.Component {
                 }
                 else if (route.index == 3){
                     return (<Text style={[styles.navigationBarText, styles.titleText]}>{routes[route.index].title} <Image style={{width:26, height: 26, marginTop:8, marginLeft:8}} source={require('./images/card.png')} /></Text>);
+                }
+                else if (route.index == 4){
+                        return (<Text style={[styles.navigationBarText, styles.titleText]}>{routes[route.index].title} <Image style={{width:26, height: 26, marginTop:8, marginLeft:8}} source={require('./images/searchh.png')} /></Text>);
                 }
 
              },

@@ -29,7 +29,7 @@ constructor(props) {
 
         },
         image: require('./images/pin.png'),
-        title: "Sirindhorn International Institute of Technology",
+        title: "SIIT",
 
 
       },{
@@ -62,6 +62,7 @@ constructor(props) {
   };
   this.onRegionChange = this.onRegionChange.bind(this);
   this.moveMaptoLocation = this.moveMaptoLocation.bind(this);
+  this.moveMapto = this.moveMapto.bind(this);
 }
 
 
@@ -86,6 +87,16 @@ moveMaptoLocation(latlng,key){
      this.refs[key].showCallout();
  }, 1000);
  }
+
+ moveMapto(latlng,key){
+    this.refs.map.animateToRegion({
+
+        latitudeDelta:0.002,
+        longitudeDelta:0.002,
+        ...latlng
+
+    },1000);
+  }
 
  componentDidMount() {
    this.watchID = navigator.geolocation.watchPosition((position) => {
@@ -150,6 +161,16 @@ moveMaptoLocation(latlng,key){
 
 
       <ScrollView contentContainerStyle={styles.contentContainer}>
+      {  <TouchableOpacity style={{borderRadius: 10,
+      padding: 10,
+      backgroundColor: '#f4384e',
+      borderColor: 'black',
+      margin: 10,
+      width:300}}
+      onPress={()=>
+          this.moveMapto(this.state.yourP, this.state.title)}>
+          <Text>Back to your position</Text>
+        </TouchableOpacity>}
      {this.state.markers.map((marker, i)=>{
        var smallMark= marker.title.toLowerCase();
        var smallTerm= this.state.term.toLowerCase();

@@ -19,20 +19,28 @@ export default class contact extends Component<{}> {
         <View style={styles.formLG}>
         <View style={styles.SectionStyle}>
         <Image source={require('./images/name.png')} style={styles.ImageStyle} />
+        </View>
+        <View style={styles.SectionTextStyle}>
               <Text style={{color:'orange'}}>Mr. Wongsathorn Charoenkul</Text>
         </View>
 
         <View style={styles.SectionStyle}>
         <Image source={require('./images/phone.png')} style={styles.ImageStyle} />
+        </View>
+        <View style={styles.SectionTextStyle}>
               <Text style={{color:'orange'}}>08x-xxxx-xxx</Text>
         </View>
 
         <View style={styles.SectionStyle}>
         <Image source={require('./images/email.png')} style={styles.ImageStyle} />
+        </View>
+        <View style={styles.SectionTextStyle}>
                 <Text style={{color:'orange'}}>golffgabb@gmail.com </Text>
         </View>
         <View style={styles.SectionStyle}>
         <Image source={require('./images/facebook.png')} style={styles.ImageStyle} />
+        </View>
+        <View style={styles.SectionTextStyle}>
                 <Text style={{color:'orange'}}>xxxxxxxx xxxxxxxxx </Text>
           </View>
           </View>
@@ -44,20 +52,28 @@ export default class contact extends Component<{}> {
             <View style={styles.formLG}>
             <View style={styles.SectionStyle}>
             <Image source={require('./images/name.png')} style={styles.ImageStyle} />
+            </View>
+            <View style={styles.SectionTextStyle}>
                   <Text style={{color:'orange'}}>Ms.Siriboon Chaisawat</Text>
             </View>
 
             <View style={styles.SectionStyle}>
             <Image source={require('./images/phone.png')} style={styles.ImageStyle} />
+            </View>
+            <View style={styles.SectionTextStyle}>
                   <Text style={{color:'orange'}}>09x-xxxx-xxx</Text>
             </View>
 
             <View style={styles.SectionStyle}>
             <Image source={require('./images/email.png')} style={styles.ImageStyle} />
+            </View>
+            <View style={styles.SectionTextStyle}>
                     <Text style={{color:'orange'}}>gaewcha@gmail.com </Text>
             </View>
             <View style={styles.SectionStyle}>
             <Image source={require('./images/facebook.png')} style={styles.ImageStyle} />
+            </View>
+            <View style={styles.SectionTextStyle}>
                     <Text style={{color:'orange'}}>xxxxxxxx xxxxxxxxx </Text>
               </View>
               </View>
@@ -82,6 +98,8 @@ const styles = StyleSheet.create({
   },
 
   formLG:{
+    flexDirection:'row',
+    flexWrap:'wrap',
     flexGrow: 2,
     justifyContent:'center',
     alignItems:'center',
@@ -94,9 +112,16 @@ const styles = StyleSheet.create({
   },
 
   SectionStyle: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+
+
+    width:50,
+
+},
+SectionTextStyle: {
+
+  width:220,
+
+
 },
   ImageStyle: {
     padding: 10,
